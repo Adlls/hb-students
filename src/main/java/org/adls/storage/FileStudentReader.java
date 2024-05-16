@@ -1,17 +1,17 @@
-package org.adls.storage.impl;
+package org.adls.storage;
 
-import org.adls.storage.FileReader;
+import org.adls.storage.FileConstants;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
-public class FileReaderImpl implements FileReader {
+public class FileStudentReader {
 
-    @Override
     public String readFile() {
-        File file = new File(pathFile);
-        try (java.io.FileReader fileReader = new java.io.FileReader(file);
+        File file = new File(FileConstants.pathFile);
+        try (FileReader fileReader = new FileReader(file);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String currentLine = bufferedReader.readLine();

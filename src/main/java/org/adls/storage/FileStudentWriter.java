@@ -1,20 +1,21 @@
-package org.adls.storage.impl;
+package org.adls.storage;
 
-import org.adls.storage.FileWriter;
+import org.adls.storage.FileConstants;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class FileWriterImpl implements FileWriter {
+public class FileStudentWriter {
 
     public void writeFile(Map<String, List<Integer>> map) {
-        File file = new File(pathFile);
+        File file = new File(FileConstants.pathFile);
 
-        try (java.io.FileWriter fileWriter = new java.io.FileWriter(file);
+        try (FileWriter fileWriter = new FileWriter(file);
              BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
 
             final var result = new StringBuilder();
@@ -32,9 +33,8 @@ public class FileWriterImpl implements FileWriter {
         }
     }
 
-    @Override
     public void clearFile() {
-        try (java.io.FileWriter writer = new java.io.FileWriter(pathFile)) {
+        try (java.io.FileWriter writer = new java.io.FileWriter(FileConstants.pathFile)) {
             writer.write("");
         } catch (IOException exception) {
             exception.printStackTrace();

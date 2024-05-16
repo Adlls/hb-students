@@ -2,10 +2,8 @@ package org.adls;
 
 import org.adls.menu.CommandOptions;
 import org.adls.menu.Menu;
-import org.adls.storage.FileReader;
-import org.adls.storage.FileWriter;
-import org.adls.storage.impl.FileReaderImpl;
-import org.adls.storage.impl.FileWriterImpl;
+import org.adls.storage.FileStudentReader;
+import org.adls.storage.FileStudentWriter;
 import org.adls.validation.Validation;
 
 import java.io.BufferedReader;
@@ -22,8 +20,8 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static final Menu menu = new Menu();
-    public static final FileReader fileReader = new FileReaderImpl();
-    public static final FileWriter fileWriter = new FileWriterImpl();
+    public static final FileStudentReader fileReader = new FileStudentReader();
+    public static final FileStudentWriter fileWriter = new FileStudentWriter();
 
     public static final Map<String, List<Integer>> gradeListByStudent = new HashMap<>();
     public static final Validation validation = new Validation();
